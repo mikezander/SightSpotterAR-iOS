@@ -71,7 +71,28 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
        
-        return nil
+        // create a label node showing the title for this anchor
+        let labelNode = SKLabelNode(text: pages[anchor.identifier])
+        labelNode.horizontalAlignmentMode = .center
+        labelNode.verticalAlignmentMode = .center
+        
+        //scale up the label's size so we have some margin
+        let size = labelNode.frame.size.applying(CGAffineTransform(scaleX: 1.1, y: 1.4))
+        
+        //create a background node using the new size, rounding its corners gently
+        let backgroundNode = SKShapeNode(rectOf: size, cornerRadius: 10)
+        
+        //fill it in with a random color
+        backgroundNode.fillColor = UIColor(hue: CGFloat(GKRandomSource.sharedRandom().nextUniform()), saturation: 0.5, brightness: 0.4, alpha: 0.9)
+        
+        //draw a border around it using a more opaque versin of its fill color
+        backgroundNode.strokeColor = backgroundNode.fillColor.withAlphaComponent(1)
+        backgroundNode.lineWidth = 2
+        
+        //add the label to the background then send back the background
+        backgroundNode.addChild(labelNode)
+        
+        return backgroundNode
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
