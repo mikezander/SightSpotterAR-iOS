@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B84729D95FDF235AC15D40A /* Pods_SightSpotterAR_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15964C5C9FD7B4262ED3A284 /* Pods_SightSpotterAR_iOS.framework */; };
 		C454DDE21F912036008E4082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454DDE11F912036008E4082 /* AppDelegate.swift */; };
 		C454DDE41F912036008E4082 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C454DDE31F912036008E4082 /* Scene.sks */; };
 		C454DDE61F912036008E4082 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454DDE51F912036008E4082 /* Scene.swift */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15964C5C9FD7B4262ED3A284 /* Pods_SightSpotterAR_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightSpotterAR_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77AEE6762CABB8E8E4E06DEC /* Pods-SightSpotterAR-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightSpotterAR-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SightSpotterAR-iOS/Pods-SightSpotterAR-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		AB0E51D24432A8E413EE5B78 /* Pods-SightSpotterAR-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightSpotterAR-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SightSpotterAR-iOS/Pods-SightSpotterAR-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C454DDDE1F912036008E4082 /* SightSpotterAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SightSpotterAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C454DDE11F912036008E4082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C454DDE31F912036008E4082 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B84729D95FDF235AC15D40A /* Pods_SightSpotterAR_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06127AF9D06CA531A685519C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77AEE6762CABB8E8E4E06DEC /* Pods-SightSpotterAR-iOS.debug.xcconfig */,
+				AB0E51D24432A8E413EE5B78 /* Pods-SightSpotterAR-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		32D02D75E4D9B676A32AAC2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15964C5C9FD7B4262ED3A284 /* Pods_SightSpotterAR_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C454DDD51F912036008E4082 = {
 			isa = PBXGroup;
 			children = (
 				C454DDE01F912036008E4082 /* SightSpotterAR-iOS */,
 				C454DDDF1F912036008E4082 /* Products */,
+				06127AF9D06CA531A685519C /* Pods */,
+				32D02D75E4D9B676A32AAC2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C454DDF41F912036008E4082 /* Build configuration list for PBXNativeTarget "SightSpotterAR-iOS" */;
 			buildPhases = (
+				77CDC675A176C3E0CF02ADB5 /* [CP] Check Pods Manifest.lock */,
 				C454DDDA1F912036008E4082 /* Sources */,
 				C454DDDB1F912036008E4082 /* Frameworks */,
 				C454DDDC1F912036008E4082 /* Resources */,
+				32C28C776D481FED5EF01ED8 /* [CP] Embed Pods Frameworks */,
+				CBA6A6C0C817F13D34A293FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,6 +164,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32C28C776D481FED5EF01ED8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SightSpotterAR-iOS/Pods-SightSpotterAR-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SightSpotterAR-iOS/Pods-SightSpotterAR-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77CDC675A176C3E0CF02ADB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SightSpotterAR-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBA6A6C0C817F13D34A293FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SightSpotterAR-iOS/Pods-SightSpotterAR-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C454DDDA1F912036008E4082 /* Sources */ = {
@@ -280,6 +361,7 @@
 		};
 		C454DDF51F912036008E4082 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77AEE6762CABB8E8E4E06DEC /* Pods-SightSpotterAR-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +377,7 @@
 		};
 		C454DDF61F912036008E4082 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB0E51D24432A8E413EE5B78 /* Pods-SightSpotterAR-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
