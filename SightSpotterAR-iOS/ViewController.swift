@@ -18,6 +18,8 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
     let locationManager = CLLocationManager()
     var userLocation = CLLocation()
     var sightsJSON: JSON!
+    var userHeading = 0.0
+    var headingCOunt = 0
     
     @IBOutlet var sceneView: ARSKView!
     
@@ -118,6 +120,22 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
         
         DispatchQueue.global().async {
             self.fetchSights()
+        }
+    }
+    
+    func createSights(){
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+       
+        DispatchQueue.main.async {
+            self.headingCOunt += 1
+            if self.headingCOunt != 2 { return }
+            
+            self.userHeading = newHeading.magneticHeading
+            self.locationManager.stopUpdatingHeading()
+            self.createSights()
         }
     }
 }
