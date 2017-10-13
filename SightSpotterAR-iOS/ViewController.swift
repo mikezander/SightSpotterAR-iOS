@@ -127,11 +127,15 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
         
         guard let url = URL(string: urlString) else{ return }
         
-        if let data = try? Data(contentsOf: url){
-            
-            sightsJSON = JSON(data)
-            locationManager.startUpdatingHeading()
-        }
+            guard let data = try? Data(contentsOf: url) else{
+                
+                print("network request error")
+                return
+            }
+        
+        sightsJSON = JSON(data)
+        locationManager.startUpdatingHeading()
+  
         
     }
     
@@ -151,7 +155,7 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
         for page in sightsJSON["query"]["pages"].dictionaryValue.values{
             
             //2 - pull out this pages coordinates and make a location form them
-            let locationLat = page["coordinates"][0]["lon"].doubleValue
+            let locationLat = page["coordinates"][0]["lat"].doubleValue
             let locationLon = page["coordinates"][0]["lon"].doubleValue
             let location = CLLocation(latitude: locationLat, longitude: locationLon)
             
@@ -214,7 +218,7 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
         
         let lon_delta = p2.coordinate.longitude - pl.coordinate.longitude
         let y = sin(lon_delta) * cos(p2.coordinate.longitude)
-        let x = cos(pl.coordinate.longitude) * sin(p2.coordinate.longitude) - sin(pl.coordinate.longitude) * cos(p2.coordinate.longitude) * cos(lon_delta)
+        let x = cos(pl.coordinate.latitude) * sin(p2.coordinate.latitude) - sin(pl.coordinate.latitude) * cos(p2.coordinate.latitude) * cos(lon_delta)
         let radians = atan2(y,x)
         
         return rad2deg(radians)
