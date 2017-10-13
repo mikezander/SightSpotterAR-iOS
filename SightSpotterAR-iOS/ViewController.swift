@@ -138,4 +138,25 @@ class ViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDeleg
             self.createSights()
         }
     }
+    
+    // Algorithm: calculate bearing from one point to another
+    func deg2rad(_ degrees: Double)-> Double{
+        return degrees * Double.pi / 180
+    }
+    
+    func rad2deg(_ radians: Double)-> Double{
+        return radians * 180 / Double.pi
+    }
+    
+    func direction(from pl: CLLocation, to p2: CLLocation)-> Double{
+        
+        let lon_delta = p2.coordinate.longitude - pl.coordinate.longitude
+        let y = sin(lon_delta) * cos(p2.coordinate.longitude)
+        let x = cos(pl.coordinate.longitude) * sin(p2.coordinate.longitude) - sin(pl.coordinate.longitude) * cos(p2.coordinate.longitude) * cos(lon_delta)
+        let radians = atan2(y,x)
+        
+        return rad2deg(radians)
+    }
+    
+    
 }
